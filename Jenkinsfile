@@ -14,7 +14,7 @@ pipeline {
                   bat 'start "FlaskApp" /MIN cmd /c "python app.py > flask.log 2>&1"'
 
                     // Wait a few seconds for the server to start
-                   bat 'timeout /t 5 /nobreak > nul'
+                  sleep(time: 5, unit: 'SECONDS')
 
                     // Run tests using pytest
                     
