@@ -14,7 +14,7 @@ pipeline {
                   bat 'start "FlaskApp" /MIN cmd /c "python app.py > flask.log 2>&1"'
 
                     // Wait a few seconds for the server to start
-                    bat 'ping 127.0.0.1 -n 5 > nul'
+                   bat 'timeout /t 5 /nobreak > nul'
 
                     // Run tests using pytest
                     
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Docker Login') {
             steps {
-                  bat 'docker login -u vaddeusha -p Hima@2789'
+                  bat 'docker login -u vyshitha -p vyshu@docker'
                 }
             }
         stage('push Docker Image to Docker Hub') {
